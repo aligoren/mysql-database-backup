@@ -3,6 +3,7 @@
 $f = $_GET['f'];
 
 $f_ex = explode('.', $f);
+// get file extension
 $f_ex = end($f_ex);
 
 if ($f_ex === "zip") {
