@@ -1,0 +1,16 @@
+Options +FollowSymlinks
+Options -Indexes
+RewriteEngine On
+RewriteBase /backup/
+
+
+RewriteRule ^error$ error.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^do/(.*)$ fd.php?f=download/$1
+
+# RewriteRule ^ index.php [QSA,L]
+
+ErrorDocument 404 /backup/error
