@@ -88,19 +88,15 @@ class Backup {
         flush();
         $ret["msgOk"] = "";
         foreach ($tables as $c) {
-            //$ret["msg"] .= 'Initializing <strong>' . $c . '</strong> table fields...' . $ds;
             ob_flush();
             flush();
             $fields = $this->_getTableFields($c);
-            //$ret["msg"] .= 'Initializing <strong>' . $c . '</strong> table create sql...' . $ds;
             ob_flush();
             flush();
             $createtables = $this->_getCreateTables($c);
-            //$ret["msg"] .= 'Initializing <strong>' . $c . '</strong> table insert sql...' . $ds;
             ob_flush();
             flush();
             $insert = $this->_createInsertSql($c, $fields);
-            //$ret["msg"] .= 'Merging sqls...' . $ds;
             ob_flush();
             flush();
             $data.=$createtables[1] . $this->ds . $this->ds . $insert . $this->ds . $this->ds ;
